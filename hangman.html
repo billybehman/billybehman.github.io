@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">"
+   
+    <link rel="stylesheet" href="hangmanstyle.css">
+</head>
+
+<body class="p-3 mb-2 bg-primary text-white">
+    <div class ="container">
+
+        <header>
+            <h1 class="text-center">Time to Play Hangman</h1>
+            <br>
+            <h3 class="text-center">The catagory is "Things that go on Foods"</h3>
+        </header>
+        <div id="blanks" class="text-center"> _____</div>
+        <br>
+        <div class="wrongLetters text-center">Check the console to play</div>
+    </div>
+
+<script>
+
+//this is where the computer picks a word
+
+var words = ["pepper", "mustard", "ketchup", "salt", "gravy", "cheese"
+];
+
+var randomNumber = Math.floor(Math.random() * words.length);
+
+var currentWord = words[randomNumber];
+
+var lines = [];
+
+console.log(currentWord);
+
+// this is where the appropriate number of lines are generated
+
+ function createLines() {
+ for(var i = 0; i < currentWord.length; i++) {
+    lines.push('_');
+ }
+ return lines;
+ }
+ console.log(createLines()); //this works 
+document.getElementById("blanks").textContent = lines;
+ 
+// this is where the computer has to register what letter is being pressed
+var actuallLetter;
+var correctGuesses = [];
+var incorrectGuesses = [];
+ document.onkeyup = function(event){
+     var keyPressed = event.keyCode;
+    actuallLetter = String.fromCharCode(keyPressed).toLowerCase()
+     console.log(actuallLetter)
+ 
+//the computer has to think about this letter in the context of the currentWord
+
+if(currentWord.indexOf(actuallLetter) > -1) {
+    correctGuesses.push(actuallLetter)
+ console.log(correctGuesses)
+}
+    else {
+        incorrectGuesses.push(actuallLetter)
+        console.log(incorrectGuesses)
+    }
+     
+ }
+
+
+
+
+// the computer has to pick a word
+// then the lines have to reflect how many letters are in the word
+// the computer has to register what letter the person is pressing
+// it has to show that letter in the correct place if it's right
+// it has to show the letter in the group of incorrect letters if it's wrong
+
+
+
+
+
+
+</script>
+    
+</body>
+</html>

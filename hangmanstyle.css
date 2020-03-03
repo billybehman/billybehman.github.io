@@ -1,0 +1,26 @@
+h1 {
+    font-style: sanOptima, sans-serif;
+    font-size: 100px;
+    
+}
+
+h3 {
+    font-style: italic;
+    font-size: 70px;
+ 
+}
+
+.blanks  {
+    font-style: Optima, sans-serif;
+    font-size: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+   
+}
+
+.wrongLetters {
+    font-style: Optima, sans-serif;
+    font-size: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+ }
